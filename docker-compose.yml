@@ -5,7 +5,7 @@ services:
       build: 
         context: .
         dockerfile: ./build-agent/Dockerfile
- test-agent:
+    test-agent:
       image: test-agent:latest
       build:
         context: .
