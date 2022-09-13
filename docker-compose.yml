@@ -1,0 +1,7 @@
+version: '3.3'
+services:
+    build-agent:
+      image: build-agent:latest
+      build: 
+        context: .
+        dockerfile: ./build-agent/Dockerfile
