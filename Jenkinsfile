@@ -33,16 +33,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Deploy'){
-		
-		steps{
-			echo 'Depolying'
-			sh 'docker-compose up -d buildsection'
-		
-		
-		}
-		
-		}
+	
 		
 		
 	}
