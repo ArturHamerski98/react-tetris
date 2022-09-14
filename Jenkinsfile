@@ -5,7 +5,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo 'BUILDING SOFTWARE'
-				sh 'docker-compose build -t arturhamerski98/build-agent:latest'
+				sh 'docker-compose build --no-cache'
 				sh 'docker-compose up --force-recreate --exit-code-from build-agent build-agent'
 			}
 			post {
