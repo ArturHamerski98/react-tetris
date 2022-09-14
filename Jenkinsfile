@@ -33,16 +33,18 @@ pipeline {
 				}
 			}
 		}
-	
-		stage('Deploy'){
-		
-		steps{
-			echo 'Depolying'
-			sh 'docker-compose up -d buildsection'
-		
-		
+		stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
 		}
-		
+
+		stage('Push') {
+
+			steps {
+				sh 'docker push arturhamerski98/deploy:latest'
+			}
 		}
 		
 		
