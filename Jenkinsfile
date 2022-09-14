@@ -20,7 +20,7 @@ pipeline {
 		stage('Test') {
 			steps {
                 		echo 'Testing'
-                		 'docker-compose build --no-cache'
+                		sh 'docker-compose build --no-cache'
 				sh 'docker-compose up --force-recreate --exit-code-from test-agent test-agent'
 			}
 			post {
