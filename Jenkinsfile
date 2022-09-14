@@ -44,6 +44,9 @@ pipeline {
 		stage('Push') {
 
 			steps {
+				echo 'BUILDING SOFTWARE'
+				sh 'docker-compose build --no-cache'
+				sh 'docker-compose up --force-recreate --exit-code-from build-agent build-agent'
 				sh 'docker push arturhamerski98/build-agent:latest'
 			}
 		}
