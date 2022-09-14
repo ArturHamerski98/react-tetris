@@ -46,7 +46,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push arturhamerski98/deploy:latest'
+				sh 'docker push arturhamerski98/build-agent:latest'
 			}
 		}
 		
