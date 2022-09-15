@@ -39,16 +39,32 @@ pipeline {
 			steps {
 				sh 'echo Arturekh18! | docker login -u arturhamerski98 --password-stdin'
 			}
+			post {
+				failure {
+					echo 'ERROR IN LOGGING'
+					sh 'false'
+				}
+				success {
+					echo 'SUCCESS IN LOGGING'
+				}
+			}
 		}
 
 		stage('Push') {
 
 			steps {
-				echo 'BUILDING SOFTWARE'
-				sh 'docker-compose build --no-cache'
-				sh 'docker-compose up --force-recreate --exit-code-from build-agent build-agent'
 				sh 'docker push arturhamerski98/build-agent:latest'
 			}
+			post {
+				failure {
+					echo 'ERROR IN PUSHING'
+					sh 'false'
+				}
+				success {
+					echo 'SUCCESS IN PUSHING'
+				}
+			}
+			
 		}
 		
 		
