@@ -39,15 +39,7 @@ pipeline {
 			steps {
 				sh 'echo Arturekh18! | docker login -u arturhamerski98 --password-stdin'
 			}
-			post {
-				failure {
-					echo 'ERROR IN LOGGING'
-					sh 'false'
-				}
-				success {
-					echo 'SUCCESS IN LOGGING'
-				}
-			}
+			
 		}
 
 		stage('Push') {
